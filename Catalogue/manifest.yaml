@@ -12,7 +12,7 @@ data:
   MONGO: "true"
   MONGO_URL: "mongodb://mongodb:27017/catalogue"
 ---
-apiVersion: apps/v2
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: catalogue
@@ -43,7 +43,7 @@ spec:
         image: joindevops/catalogue:1.0.0
         envFrom:
         - configMapRef:
-          name: catalogue
+            name: catalogue
 ---
 apiVersion: v1
 kind: Service
