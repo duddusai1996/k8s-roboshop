@@ -42,7 +42,7 @@ spec:
       - name: catalogue
         image: joindevops/catalogue:1.0.0
         envFrom:
-        - ConfigMapRef:
+        - configMapRef:
           name: catalogue
 ---
 apiVersion: v1
