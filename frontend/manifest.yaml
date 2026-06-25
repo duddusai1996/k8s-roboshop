@@ -145,18 +145,13 @@ metadata:
     tier: frontend
     component: frontend
 spec:
+  
+  type: LoadBalancer
   selector:
-    # labels are used as selectors
+      # labels are used as selectors
     project: roboshop
     tier: frontend
     component: frontend
-  spec:
-    type: LoadBalancer
-    selector:
-      # labels are used as selectors
-      project: roboshop
-      tier: frontend
-      component: frontend
   ports:
   - protocol: TCP
     port: 80 # servie port
