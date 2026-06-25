@@ -34,33 +34,33 @@ spec:
         project: roboshop
         tier: backend
         component: cart
-spec:
-  containers:
-  - name: cart
-    image: joindevops/cart:1.4.0
-    imagePullPolicy: Always
-    resources:
-      requests:
-        cpu: "100m"
-        memory: "128Mi"
-      limits:
-        cpu: "100m"
-        memory: "128Mi"
-      readinessProbe:
-        tcpSocket:
-          port: 8080
-        failureThreshold: 2
-        periodSeconds: 10
-        initialDelaySeconds: 15
-      livenessProbe:
-        httpGet:
-          path: /health
-          port: 8080
-        failureThreshold: 2
-        periodSeconds: 10
-      envFrom:
-      - configMapRef:
-        name: cart
+    spec:
+      containers:
+      - name: cart
+        image: joindevops/cart:1.4.0
+        imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "100m"
+            memory: "128Mi"
+          readinessProbe:
+            tcpSocket:
+              port: 8080
+            failureThreshold: 2
+            periodSeconds: 10
+            initialDelaySeconds: 15
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            failureThreshold: 2
+            periodSeconds: 10
+          envFrom:
+          - configMapRef:
+            name: cart
 ---
 apiVersion: v1
 kind: Service
