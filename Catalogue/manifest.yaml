@@ -9,8 +9,8 @@ metadata:
     tier: backend
     component: catalogue
 data:
-  MONGO: "true"
   MONGO_URL: "mongodb://mongodb:27017/catalogue"
+  MONGO: "true"
 ---
 apiVersion: apps/v1
 kind: Deployment
