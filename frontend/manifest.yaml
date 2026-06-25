@@ -99,7 +99,7 @@ spec:
         component: frontend
     spec:
       volumes:
-      - name: nginx.config
+      - name: nginx-config
         configMap:
           name: frontend
       containers:
@@ -118,14 +118,14 @@ spec:
           #   path: /health
           #   port: 8080
           tcpSocket:
-            port: 8080
+            port: 80
           failureThreshold: 2
           periodSeconds: 10
           initialDelaySeconds: 15
         livenessProbe:
           httpGet:
-            path: /health
-            port: 8080
+            path: /
+            port: 80
           failureThreshold: 2
           periodSeconds: 10
         volumeMounts:
@@ -138,7 +138,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: cart
+  name: frontend
   namespace: roboshop
   labels:
     project: roboshop
@@ -150,6 +150,13 @@ spec:
     project: roboshop
     tier: frontend
     component: frontend
+  spec:
+    type: LoadBalancer
+    selector:
+      # labels are used as selectors
+      project: roboshop
+      tier: frontend
+      component: frontend
   ports:
   - protocol: TCP
     port: 80 # servie port
