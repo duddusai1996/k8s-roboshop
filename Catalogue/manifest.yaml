@@ -82,7 +82,7 @@ spec:
     # labels are used as selectors
     project: roboshop
     tier: db
-    component: mongodb
+    component: catalogue
   ports:
   - protocol: TCP
     port: 8080 # servie port
